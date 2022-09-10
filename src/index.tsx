@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { RecoilRoot } from 'recoil';
-import Route from './routes/index';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './routes/index';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -23,7 +24,9 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
-        <Route />
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
       </RecoilRoot>
     </QueryClientProvider>
   </React.StrictMode>

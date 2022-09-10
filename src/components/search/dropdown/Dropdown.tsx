@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { useSearchMovie } from '../../hooks/queries';
-import { keywordState } from '../../store/search';
+import { useSearchMovie } from '../../../hooks/queries';
+import { keywordState } from '../../../store/search';
 import DropdownItem from './DropdownItem';
 
 const Dropdown = () => {

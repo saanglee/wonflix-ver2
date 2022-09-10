@@ -11,8 +11,6 @@ const SearchForm = () => {
   const [keyword, setKeyword] = useRecoilState(keywordState);
   const debouncedKeyword = useDebounce(keyword, 100);
 
-  // const { data: movies } = useGetMovies();
-
   const { data: searchResults } = useSearchMovie(debouncedKeyword);
   console.log('keyword : ', keyword);
   console.log('searchResults : ', searchResults);
