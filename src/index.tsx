@@ -5,6 +5,7 @@ import { RecoilRoot } from 'recoil';
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes/index';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -28,6 +29,7 @@ root.render(
           <Routes />
         </BrowserRouter>
       </RecoilRoot>
+      <ReactQueryDevtools />
     </QueryClientProvider>
   </React.StrictMode>
 );
