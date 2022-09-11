@@ -1,3 +1,4 @@
+import { Like } from '../hooks/queries/useUpdateLike';
 import { Movie } from '../types/type';
 import axiosInstance from './axios';
 
@@ -11,9 +12,9 @@ const MovieAPI = {
     return data;
   },
   getByKeyword: () => {},
-  getInFavorite: () => {},
+  getInBookmark: () => {},
 
-  updateBookmark: async (id: number, like: boolean): Promise<Movie[]> => {
+  updateLike: async ({ id, like }: Like): Promise<Movie[]> => {
     const { data } = await axiosInstance.patch<Movie[]>(`/movies/${id}`, {
       like: !like,
     });

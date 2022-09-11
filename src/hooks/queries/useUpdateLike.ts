@@ -1,15 +1,22 @@
-import { Movie } from './../../types/type.d';
+import { Movie } from '../../types/type';
 import { UseMutateFunction, useMutation, useQueryClient } from 'react-query';
 import MovieAPI from '../../api/MovieAPI';
 import queryKeys from '../../react-query/queryKey';
 
-export const useUpdateBookmark = (
-  id: number
-): UseMutateFunction<Movie[], unknown, boolean, unknown> => {
+export interface Like {
+  id: number;
+  like: boolean;
+}
+export const useUpdateLike = (): UseMutateFunction<
+  Movie[],
+  unknown,
+  Like,
+  unknown
+> => {
   const queryClient = useQueryClient();
 
   const { mutate } = useMutation(
-    (like: boolean) => MovieAPI.updateBookmark(id, like),
+    ({ id, like }: Like) => MovieAPI.updateLike({ id, like }),
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.bookmark]);
