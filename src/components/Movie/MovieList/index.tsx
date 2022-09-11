@@ -1,11 +1,10 @@
 import React from 'react';
-import { useGetMovies } from '../../hooks/queries';
-import { Movie } from '../../types/type';
-import Card from '../common/Card';
+import Card from '../MovieCard';
+import useGetMovies from '../../../hooks/queries/useGetMovies';
+import { Movie } from '../../../types/type';
 
-const MovieList = () => {
+const List = () => {
   const { data: movies } = useGetMovies();
-  console.log('movies', movies);
 
   return (
     <div>
@@ -20,4 +19,4 @@ const MovieList = () => {
   );
 };
 
-export default MovieList;
+export default List;

@@ -1,11 +1,11 @@
 import React from 'react';
-import GNB from '../../components/GNB';
+import Navigation from '../../components/Navigation';
 import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
     <div>
-      <GNB />
+      <Navigation />
       <main>
         <Outlet />
       </main>

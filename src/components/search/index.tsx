@@ -1,19 +1,17 @@
 import React, { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
-import { useGetMovies, useSearchMovie } from '../../hooks/queries';
+// import { useGetMovies, useSearchMovie } from '../../hooks/queries';
 import { useDebounce } from '../../hooks/useDebounce';
 import { keywordState } from '../../store/search';
 import { handleKeyDown } from '../../utils/handleKeyDown';
 
 const PLACEHOLDER = '검색어를 입력해주세요.';
 
-const SearchForm = () => {
+const SearchInput = () => {
   const [keyword, setKeyword] = useRecoilState(keywordState);
   const debouncedKeyword = useDebounce(keyword, 100);
 
-  const { data: searchResults } = useSearchMovie(debouncedKeyword);
-  console.log('keyword : ', keyword);
-  console.log('searchResults : ', searchResults);
+  // const { data: searchResults } = useSearchMovie(debouncedKeyword);
 
   return (
     <form onSubmit={() => {}}>
@@ -31,4 +29,4 @@ const SearchForm = () => {
   );
 };
 
-export default SearchForm;
+export default SearchInput;
