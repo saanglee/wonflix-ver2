@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Movie, MovieDetail } from '../../../types/type';
+import { Movie, MovieDetail } from '../../../@types/type';
 
 interface PostDetailProps {
   movie: any; // TODO: any 수정
@@ -21,8 +21,6 @@ const PostDetail: React.FC<PostDetailProps> = ({ movie }) => {
     medium_cover_image,
     description_full,
   }: MovieDetail = movie;
-
-  console.log(movie);
 
   return (
     <div>

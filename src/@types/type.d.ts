@@ -1,3 +1,5 @@
+declare module 'react-infinite-scroller';
+
 export interface MovieDetail {
   id: number;
   title: string;

@@ -4,13 +4,11 @@ import { useUpdateLike, Like } from '../../../hooks/queries/useUpdateLike';
 import Button from '../../Button';
 import styles from './card.module.scss';
 
-// import styles from './tmp.module.scss';
-// <div assName={styles.title}>Tmp</div>;
 const Card = ({ movie }: any) => {
   const navigate = useNavigate();
   const CARD_IMAGE = movie.medium_cover_image;
   const TITLE = movie.title;
-  console.log(movie.id, movie.like);
+
   const [isLiked, setIsLiked] = useState<boolean>(movie.like);
 
   const patchLike = useUpdateLike();

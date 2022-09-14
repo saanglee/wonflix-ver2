@@ -1,4 +1,4 @@
-import { Movie } from '../../types/type';
+import { Movie } from '../../@types/type';
 import { UseMutateFunction, useMutation, useQueryClient } from 'react-query';
 import MovieAPI from '../../api/MovieAPI';
 import queryKeys from '../../react-query/queryKey';

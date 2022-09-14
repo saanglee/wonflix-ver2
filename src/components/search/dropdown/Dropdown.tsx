@@ -1,13 +1,12 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { useSearchMovie } from '../../../hooks/queries';
+// import { useSearchMovie } from '../../../hooks/queries';
 import { keywordState } from '../../../store/search';
 import DropdownItem from './DropdownItem';
 
 const Dropdown = () => {
   const tempFilteredData: string[] = [];
   const keyword = useRecoilValue(keywordState);
-  const { data: searchResults } = useSearchMovie(keyword);
 
   const renderFilteredTitles = (): JSX.Element[] => {
     const filteredTitles = tempFilteredData.map(

@@ -1,22 +1,23 @@
-import React from 'react';
 import Card from '../MovieCard';
 import useGetMovies from '../../../hooks/queries/useGetMovies';
-import { Movie } from '../../../types/type';
+import { Movie } from '../../../@types/type';
+import InfinteScroll from 'react-infinite-scroller';
+import { useInfiniteQuery } from 'react-query';
 
-const List = () => {
+const MovieList = () => {
   const { data: movies } = useGetMovies();
 
   return (
     <div>
-      {movies?.map((movie: Movie) => {
+      {/* {movies?.map((movie: Movie) => {
         return (
           <div key={movie.id}>
             <Card movie={movie} />
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 };
 
-export default List;
+export default MovieList;

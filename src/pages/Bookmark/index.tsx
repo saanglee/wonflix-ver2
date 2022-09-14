@@ -1,4 +1,4 @@
-import { Movie } from '../../types/type';
+import { Movie } from '../../@types/type';
 import Card from '../../components/Movie/MovieCard';
 import useGetMovies from '../../hooks/queries/useGetMovies';
 
@@ -12,13 +12,13 @@ const Bookmark = () => {
 
   return (
     <div>
-      {movies?.map((movie: Movie) => {
+      {/* {movies?.map((movie: Movie) => {
         return (
           <div key={movie.id}>
             <Card movie={movie} />
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 };
