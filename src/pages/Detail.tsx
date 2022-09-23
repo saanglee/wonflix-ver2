@@ -1,8 +1,8 @@
 // img, title, year, runtime, like, genres, rating, summary
 import { useParams } from 'react-router-dom';
-import useGetMovieById from '../../hooks/queries/useGetMovieById';
-import { Movie } from '../../@types/type';
-import PostDetail from '../../components/Movie/MovieDetail/PostDetail';
+import useGetMovieById from '../hooks/queries/useGetMovieById';
+import { Movie } from '../@types/type';
+import PostDetail from '../components/Movie/MovieDetail/PostDetail';
 
 interface DetailProps {
   movie: Movie;
