@@ -3,13 +3,15 @@ import { Movie } from '../@types/type';
 import axiosInstance from './axios';
 
 const MovieAPI = {
-  getAll: async (pageParam: number) => {
+  getAll: async (pageParam?: number) => {
     const { data } = await axiosInstance.get(
       // `/movies?_page=${pageParam}&_limit=10`
       `/movies?_page=${pageParam}`
     );
-    console.log(data);
-    return { data, next: pageParam + 1, totalPage: data.length };
+    if (pageParam) {
+      return { data, next: pageParam + 1, totalPage: data.length };
+    }
+    return data;
   },
   getById: async (id: number): Promise<{ data: Movie }> => {
     const { data } = await axiosInstance.get<{ data: Movie }>(`/movies/${id}`);
@@ -17,10 +19,11 @@ const MovieAPI = {
   },
   getInBookmark: () => {},
 
-  updateLike: async ({ id, like }: Like): Promise<Movie[]> => {
+  updateLike: async (id: number, like: boolean): Promise<Movie[]> => {
     const { data } = await axiosInstance.patch<Movie[]>(`/movies/${id}`, {
       like: !like,
     });
+    console.log('like');
     return data;
   },
 };
