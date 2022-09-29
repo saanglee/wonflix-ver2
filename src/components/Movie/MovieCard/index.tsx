@@ -1,20 +1,23 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useUpdateLike, Like } from '../../../hooks/queries/useUpdateLike';
-import Button from '../../Button';
+import { useUpdateLike } from '../../../hooks/queries/useUpdateLike';
 import styles from './card.module.scss';
 
 const Card = ({ movie }: any) => {
   const navigate = useNavigate();
-  const CARD_IMAGE = movie.medium_cover_image;
-  const TITLE = movie.title;
+  const image = movie.medium_cover_image;
+  const title = movie.title;
+  const id = movie.id;
 
   const [isLiked, setIsLiked] = useState<boolean>(movie.like);
 
   const patchLike = useUpdateLike();
 
-  const updateLike = ({ id, like }: Like) => {
-    patchLike({ id, like });
+  const updateLike = () => {
+    // FIXME: 좋아요 버튼 클릭하면 리렌더링됨
+    setIsLiked(!isLiked);
+    // patchLike({ id, isLiked });
+    console.log(id, isLiked);
   };
 
   const handleClickCard = () => {
@@ -22,13 +25,12 @@ const Card = ({ movie }: any) => {
   };
 
   return (
-    <div>
-      <div className='card_wrapper' onClick={handleClickCard}>
-        <img src={CARD_IMAGE} alt='' />
-        <h2 className={styles.movie_title}>{TITLE}</h2>
+    <div className={styles.cardContainer}>
+      <div className={styles.cardWrapper} onClick={handleClickCard}>
+        <img src={image} alt='' />
+        <h2 className={styles.movieTitle}>{title}</h2>
       </div>
-      <input type='checkbox' className={styles.favorite} />
-      <button type='button' onClick={() => updateLike}>
+      <button type='button' className={styles.bookmark} onClick={updateLike}>
         좋아요
       </button>
     </div>
