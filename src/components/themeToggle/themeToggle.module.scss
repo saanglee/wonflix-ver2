@@ -1,0 +1,48 @@
+@use 'src/styles/constants/colors';
+
+.lightToggle {
+  width: 45px;
+  height: 25px;
+  display: block;
+  position: relative;
+  border-radius: 50px;
+  background-color: colors.$GRAYD;
+  cursor: pointer;
+  border: none;
+
+  .toggleSlider {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 3px;
+    top: 2.5px;
+    transition: all 200ms ease-in;
+    border-radius: 50%;
+    background: white;
+  }
+}
+
+// FIXME: 코드 중복 어떻게 고치지 ?
+
+.darkToggle {
+  background-color: white;
+
+  width: 45px;
+  height: 25px;
+  display: block;
+  position: relative;
+  border-radius: 50px;
+  background-color: colors.$GRAYD;
+  cursor: pointer;
+  border: none;
+  .toggleSlider {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 22px;
+    top: 2.5px;
+    transition: all 200ms ease-in;
+    border-radius: 50%;
+    background: black;
+  }
+}
