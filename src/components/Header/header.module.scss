@@ -1,0 +1,26 @@
+@use 'src/styles/constants/colors';
+@use 'src/styles/mixins/animation';
+
+// PC
+.headerContainer {
+  @include animation.setTheme($light-mode: true);
+
+  height: 100px;
+  min-width: 1200px;
+  max-width: 1600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  left: 190px;
+  z-index: 1;
+  .searchContainer {
+    margin: 10px;
+  }
+  :root[color-theme='dark'] & {
+    @include animation.setTheme($light-mode: false);
+  }
+  .wrapper {
+    display: flex;
+  }
+}
