@@ -5,7 +5,7 @@ import queryKeys from '../../react-query/queryKey';
 
 export interface Like {
   id: number;
-  like: boolean;
+  isLiked: boolean;
 }
 export const useUpdateLike = (): UseMutateFunction<
   Movie[],
@@ -16,7 +16,7 @@ export const useUpdateLike = (): UseMutateFunction<
   const queryClient = useQueryClient();
 
   const { mutate } = useMutation(
-    ({ id, like }: Like) => MovieAPI.updateLike({ id, like }),
+    ({ id, isLiked }: Like) => MovieAPI.updateLike(id, isLiked),
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.bookmark]);
