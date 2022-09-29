@@ -1,0 +1,60 @@
+@use 'src/styles/constants/colors';
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lightToDark {
+  from {
+    background-color: colors.$WHITE;
+  }
+  to {
+    background-color: colors.$BLACK;
+  }
+}
+
+@keyframes darkToLight {
+  from {
+    background-color: colors.$BLACK;
+  }
+  to {
+    background-color: colors.$WHITE;
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 100% 0, 0 0;
+  }
+}
+
+@mixin fadeInAnimation($duration) {
+  animation: fadein $duration;
+}
+
+@mixin shineAnimation {
+  background-repeat: repeat-y;
+  background-position: 0 0;
+  animation: shine 1.3s infinite linear;
+}
+
+@mixin setTheme($light-mode: true) {
+  @if $light-mode {
+    animation: darkToLight 700ms;
+    background-color: colors.$WHITE;
+  } @else {
+    animation: lightToDark 700ms;
+    background-color: colors.$BLACK;
+  }
+}
+
+@mixin fadeBackground($color, $duration) {
+  background-color: $color;
+  transition: $duration;
+}

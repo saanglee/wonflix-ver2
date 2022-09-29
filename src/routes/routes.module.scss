@@ -1,0 +1,16 @@
+@import '../styles/constants/colors';
+
+.app {
+  height: fit;
+  min-height: 100vh;
+}
+
+.app.light {
+  --theme: colors.$WHITE;
+  --color: colors.$BLACK;
+}
+
+.app.dark {
+  --theme: colors.$BLACK;
+  --color: colors.$WHITE;
+}

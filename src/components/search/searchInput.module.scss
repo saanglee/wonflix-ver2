@@ -1,0 +1,15 @@
+.searchInputContainer {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  input {
+    width: 500px;
+    height: 40px;
+    border: 1px solid gray;
+  }
+}
+
+.searchButton {
+  width: 20%;
+  height: 30px;
+}

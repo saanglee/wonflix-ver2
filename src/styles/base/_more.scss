@@ -72,5 +72,5 @@ button {
 input:is([type='button'], [type='submit'], [type='reset']),
 input[type='file']::file-selector-button,
 button {
-  color: white;
+  color: black;
 } // override safari default blue

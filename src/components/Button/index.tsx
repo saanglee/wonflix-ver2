@@ -1,57 +1,44 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
+import classNames from 'classnames/bind';
+import styles from './button.module.scss';
+import { Link } from 'react-router-dom';
 
-type colorType = 'transparent' | 'black' | 'white' | 'primary' | 'gray' | 'red';
+const cx = classNames.bind(styles);
 
-interface ButtonStyle {
-  buttonColor: colorType;
-  fontColor: colorType;
-  fontSize?: string;
-  width?: string;
-  height?: string;
-  borderRadius?: string;
-}
+type ButtonType = 'circle' | 'navigation' | 'regular';
+type ButtonSize = 'small' | 'default' | 'medium' | 'large';
+type ButtonColor = 'primary' | 'secondary';
 
-interface ButtonProps extends ButtonStyle {
+interface ButtonProps {
   children: ReactNode;
-  onClick: (...args: any) => void;
-  className?: string;
+  buttonColor?: string;
+  onClick?: (...args: any) => void;
+  type?: ButtonType;
+  size?: ButtonSize;
+  link?: string;
+  fontColor?: string;
+  fontSize?: string;
+  borderRadius?: string;
+  extendClass?: string;
 }
 
-const palette = {
-  transparent: 'transparent',
-  black: 'black',
-  white: 'white',
-  primary: '#91c199',
-  gray: '#a6a6a6',
-  red: '#ff6262',
-};
+const Button = ({
+  children,
+  buttonColor = 'transparent',
+  onClick,
+  size = 'default',
+  type,
+  link = '/',
+  extendClass,
+}: ButtonProps) => {
+  const Component = 'button' as keyof JSX.IntrinsicElements;
 
-const Button = ({ className, children, onClick, ...rest }: ButtonProps) => {
-  const { width, height, buttonColor, borderRadius, fontColor, fontSize } = {
-    ...rest,
-  };
-
-  const style = {
-    container: {
-      backgroundColor: palette[buttonColor],
-      color: palette[fontColor],
-      width,
-      height,
-      borderRadius,
-      fontSize,
-    },
-  };
   return (
-    <div>
-      <button
-        type='button'
-        className={className}
-        style={style.container}
-        onClick={onClick}
-      >
+    <Link to={link}>
+      <Component onClick={onClick} className={cx(size, type, extendClass)}>
         {children}
-      </button>
-    </div>
+      </Component>
+    </Link>
   );
 };
 

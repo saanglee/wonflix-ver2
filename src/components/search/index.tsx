@@ -1,9 +1,11 @@
 import React, { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
-// import { useGetMovies, useSearchMovie } from '../../hooks/queries';
 import { useDebounce } from '../../hooks/useDebounce';
-import { keywordState } from '../../store/search';
+import { keywordState } from '../../store/global';
+import styles from './searchInput.module.scss';
 import { handleKeyDown } from '../../utils/handleKeyDown';
+import Button from '../Button';
+import Typography from '../Typography';
 
 const PLACEHOLDER = '검색어를 입력해주세요.';
 
@@ -14,7 +16,11 @@ const SearchInput = () => {
   // const { data: searchResults } = useSearchMovie(debouncedKeyword);
 
   return (
-    <form onSubmit={() => {}}>
+    <form onSubmit={() => {}} className={styles.searchInputContainer}>
+      <Button
+        children={<Typography children={'Search'} type={'B1'} />}
+        size={'default'}
+      />
       <input
         type='text'
         value={keyword}
@@ -24,7 +30,6 @@ const SearchInput = () => {
         onKeyDown={handleKeyDown}
         placeholder={PLACEHOLDER}
       />
-      <button type='submit'>검색</button>
     </form>
   );
 };

@@ -1,0 +1,15 @@
+@use 'src/styles/mixins/responsive';
+
+// Mobile
+
+// PC
+
+@include responsive.between(SD, QHD) {
+  .container {
+    .mainConatiner {
+      position: absolute;
+      left: 200px;
+      top: 100px;
+    }
+  }
+}
